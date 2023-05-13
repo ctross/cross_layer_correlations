@@ -45,7 +45,7 @@ library(xtable)
  res_bs = sampling(object = sm, data = model_dat_bs, chains = chains, refresh=refresh, iter = iter, warmup = warmup, seed = seed)
 
  ######################### This code runs the stan models for Inland Site
- iter = 1600
+ iter = 2500
  warmup = 1000
  chains = 1
  refresh = 1
