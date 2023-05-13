@@ -20,7 +20,7 @@ library(ggraph)
 library(xtable)
 
 ################################################ Set WD and load data
- path = "C:\\Users\\pound\\Dropbox\\Open Papers\\Multiplex\\WorkflowUpdated\\PublicWorkflow"
+ path = "C:\\Users\..."
  setwd(path)
  load("ColombianDataPublicationVersion.RData")
 
