@@ -8,10 +8,7 @@ calming_como = c("#34261D", "#A96922", "#7D370D", "#1C7262","#114B47","#CF821B",
  df2b = df_q_sc[which(df_q_sc$rs_type %in% c("Between-Person")),]
  df2b$Site="Lowland"
 
- df2c = df_q_su[which(df_q_su$rs_type %in% c("Between-Person")),]
- df2c$Site="Altiplano"
-
- df2 = rbind(df2a,df2b,df2c)
+ df2 = rbind(df2a,df2b)
 
  dodgewidth = 0.6
 
@@ -19,7 +16,7 @@ calming_como = c("#34261D", "#A96922", "#7D370D", "#1C7262","#114B47","#CF821B",
  geom_linerange(position = position_dodge(width = dodgewidth)) +  geom_vline(xintercept = 0,linetype="dashed") +
  geom_point(position = position_dodge(width = dodgewidth)) +  facet_grid(. ~ rs_type  , space="free") + theme(axis.text = element_text(size = 14))  + 
  theme(axis.title = element_text(size = 14))  + ylab("") + xlab("Correlation") + theme(strip.text.x = element_text(size = 14)) +
- scale_colour_manual(values = c("Coastal" = calming_como[6], "Lowland" = calming_como[3], "Altiplano" = calming_como[1]))
+ scale_colour_manual(values = c("Coastal" = calming_como[6], "Lowland" = calming_como[3]))
 
 ggsave("DR_bp.pdf", p2a, height=3, width=6)
 
@@ -30,16 +27,13 @@ ggsave("DR_bp.pdf", p2a, height=3, width=6)
  df2b = df_q_sc[which(df_q_sc$rs_type %in% c("Within-Person")),]
  df2b$Site="Lowland"
 
- df2c = df_q_su[which(df_q_su$rs_type %in% c("Within-Person")),]
- df2c$Site="Altiplano"
-
- df2 = rbind(df2a,df2b,df2c)
+ df2 = rbind(df2a,df2b)
 
  p2b = ggplot(df2, aes(y=Group2,  x=r, xmin=l, xmax=h,color=Site)) +
  geom_linerange(position = position_dodge(width = dodgewidth)) +  geom_vline(xintercept = 0,linetype="dashed") +
  geom_point(position = position_dodge(width = dodgewidth)) +  facet_grid(. ~ rs_type  , space="free") + theme(axis.text = element_text(size = 14))  + 
  theme(axis.title = element_text(size = 14))  + ylab("") + xlab("Correlation") + theme(strip.text.x = element_text(size = 14)) +
- scale_colour_manual(values = c("Coastal" = calming_como[6], "Lowland" = calming_como[3], "Altiplano" = calming_como[1]))
+ scale_colour_manual(values = c("Coastal" = calming_como[6], "Lowland" = calming_como[3]))
 
 ggsave("DR_wp.pdf", p2b, height=3, width=6)
 
@@ -50,15 +44,13 @@ ggsave("DR_wp.pdf", p2b, height=3, width=6)
  df2b = df_q_sc[which(df_q_sc$rs_type %in% c("Dyadic Reciprocity")),]
  df2b$Site="Lowland"
 
-  df2c = df_q_su[which(df_q_su$rs_type %in% c("Dyadic Reciprocity")),]
- df2c$Site="Altiplano"
 
- df2 = rbind(df2a,df2b,df2c)
+ df2 = rbind(df2a,df2b)
 
  p2c = ggplot(df2, aes(y=Group2,  x=r, xmin=l, xmax=h,color=Site)) +
  geom_linerange(position = position_dodge(width = dodgewidth)) +  geom_vline(xintercept = 0,linetype="dashed") +
  geom_point(position = position_dodge(width = dodgewidth)) +  facet_grid(. ~ rs_type  , space="free") + theme(axis.text = element_text(size = 14))  + 
  theme(axis.title = element_text(size = 14))  + ylab("") + xlab("Correlation") + theme(strip.text.x = element_text(size = 14)) +
- scale_colour_manual(values = c("Coastal" = calming_como[6], "Lowland" = calming_como[3], "Altiplano" = calming_como[1]))
+ scale_colour_manual(values = c("Coastal" = calming_como[6], "Lowland" = calming_como[3]))
 
 ggsave("DR_dr.pdf", p2c, height=3, width=6)

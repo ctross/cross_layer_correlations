@@ -1,10 +1,4 @@
-
-         # Outcome[i,j,1] = Give[i,j];     
-         # Outcome[i,j,2] = Exploit[i,j];     
-         # Outcome[i,j,3] = Reduce[i,j];    
-         # Outcome[i,j,4] = Selfish[i,j];   
-         # Outcome[i,j,5] = Generous[i,j];  
-
+###################################################### Export results to latex
 DR_res_BS = precis(res_bs, pars="D_corr", depth=3)
 DR_res_SC = precis(res_sc, pars="D_corr", depth=3)
 
@@ -19,7 +13,6 @@ prep_latex_variables = function(named_list) {
   return(out)
 }
 
-setwd("C:\\Users\\cody_ross\\Dropbox\\Open Papers\\Multiplex\\Nature-Comms-submission")
 make_result = function(bob, line, site){
   mean_res = sprintf("%.2f", bob[line, 1]) 
   L_res = sprintf("%.2f", bob[line, 3]) 
