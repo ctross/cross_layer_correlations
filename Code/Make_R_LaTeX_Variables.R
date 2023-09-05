@@ -1,9 +1,14 @@
 ###################################################### Export results to latex
 DR_res_BS = precis(res_bs, pars="D_corr", depth=3)
 DR_res_SC = precis(res_sc, pars="D_corr", depth=3)
+DR_res_TB = precis(res_tb, pars="D_corr", depth=3)
+DR_res_SU = precis(res_su, pars="D_corr", depth=3)
 
 GR_res_BS = precis(res_bs, pars="G_corr", depth=3)
 GR_res_SC = precis(res_sc, pars="G_corr", depth=3)
+GR_res_TB = precis(res_tb, pars="G_corr", depth=3)
+GR_res_SU = precis(res_su, pars="G_corr", depth=3)
+
 
 prep_latex_variables = function(named_list) {
   out = character()
@@ -20,8 +25,12 @@ make_result = function(bob, line, site){
    
   if(site=="c") 
   form_res = paste0("$\\rho_c =$ ", mean_res, ", CI: ", L_res, ", ", H_res)
-  else
+  if(site=="l") 
   form_res = paste0("$\\rho_l =$ ", mean_res, ", CI: ", L_res, ", ", H_res)
+  if(site=="h") 
+  form_res = paste0("$\\rho_h =$ ", mean_res, ", CI: ", L_res, ", ", H_res)
+  if(site=="a") 
+  form_res = paste0("$\\rho_a =$ ", mean_res, ", CI: ", L_res, ", ", H_res)
 
   return(form_res)
 }
@@ -33,8 +42,12 @@ make_result_point = function(bob, line, site){
    
   if(site=="c") 
   form_res = paste0("$\\rho_c =$ ", mean_res)
-  else
+  if(site=="l") 
   form_res = paste0("$\\rho_l =$ ", mean_res)
+  if(site=="h") 
+  form_res = paste0("$\\rho_h =$ ", mean_res)
+  if(site=="a") 
+  form_res = paste0("$\\rho_a =$ ", mean_res)
 
   return(form_res)
 }
@@ -97,4 +110,62 @@ calcs = prep_latex_variables(list(
   gSPbs = make_result(GR_res_BS, 79, "c")
   ))
 
-writeLines(calcs, "calcs.tex")
+calcs2 = prep_latex_variables(list(
+  fGEsu = make_result_point(DR_res_SU, 2, "a"),
+  fQGsu = make_result_point(GR_res_SU, 60, "a"),
+  #
+  dGGsu = make_result(DR_res_SU, 6, "a"), 
+  dEEsu = make_result(DR_res_SU, 17, "a"),
+  dPPsu = make_result(DR_res_SU, 28, "a"),
+  dQQsu = make_result(DR_res_SU, 39, "a"),
+  dSSsu = make_result(DR_res_SU, 50, "a"),
+  #
+  dGGtb = make_result(DR_res_TB, 6, "h"),
+  dEEtb = make_result(DR_res_TB, 17, "h"),
+  dPPtb = make_result(DR_res_TB, 28, "h"),
+  dQQtb = make_result(DR_res_TB, 39, "h"), 
+  dSStb = make_result(DR_res_TB, 50, "h"),
+  #
+  dGSsu = make_result(DR_res_SU, 4, "a"), 
+  dGQsu = make_result(DR_res_SU, 5, "a"),
+  dGStb = make_result(DR_res_TB, 4, "h"), 
+  dGQtb = make_result(DR_res_TB, 5, "h"),
+  #
+  dESsu = make_result(DR_res_SU, 14, "a"), 
+  dEQsu = make_result(DR_res_SU, 15, "a"),
+  dEStb = make_result(DR_res_TB, 14, "h"), 
+  dEQtb = make_result(DR_res_TB, 15, "h"),
+  #
+  dPSsu = make_result(DR_res_SU, 24, "a"), 
+  dPQsu = make_result(DR_res_SU, 25, "a"),
+  dPStb = make_result(DR_res_TB, 24, "h"), 
+  dPQtb = make_result(DR_res_TB, 25, "h"),
+  #
+  dQzGsu = make_result(DR_res_SU, 10, "a"),
+  dQzEsu = make_result(DR_res_SU, 20, "a"),
+  dQzPsu = make_result(DR_res_SU, 30, "a"),
+  dQzGtb = make_result(DR_res_TB, 10, "h"),
+  dQzEtb = make_result(DR_res_TB, 20, "h"),
+  dQzPtb = make_result(DR_res_TB, 30, "h"),
+  #
+  dSzGsu = make_result(DR_res_SU, 9, "a"),
+  dSzEsu = make_result(DR_res_SU, 18, "a"),
+  dSzPsu = make_result(DR_res_SU, 27, "a"),
+  dSzGtb = make_result(DR_res_TB, 9, "h"),
+  dSzEtb = make_result(DR_res_TB, 18, "h"),
+  dSzPtb = make_result(DR_res_TB, 27, "h"),
+  #
+  gQGsu = make_result(GR_res_SU, 60, "a"),
+  gQGtb = make_result(GR_res_TB, 60, "h"),
+  gQEsu = make_result(GR_res_SU, 70, "a"),
+  gQEtb = make_result(GR_res_TB, 70, "h"),
+  gQPsu = make_result(GR_res_SU, 80, "a"),
+  gQPtb = make_result(GR_res_TB, 80, "h"),
+  #
+  gSEsu = make_result(GR_res_SU, 69, "a"),
+  gSEtb = make_result(GR_res_TB, 69, "h"),
+  gSPsu = make_result(GR_res_SU, 79, "a"),
+  gSPtb = make_result(GR_res_TB, 79, "h")
+  ))
+
+writeLines(calcs2, "calcs2.tex")

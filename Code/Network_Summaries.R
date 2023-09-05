@@ -13,7 +13,7 @@
   }
                      
                      
- NetProps = matrix(NA, ncol=8, nrow=10)                     
+ NetProps = matrix(NA, ncol=8, nrow=20)                     
                      
   NetProps[1,] = c("Coastal","Generous rating", netsum(model_dat_bs$Generous))   
   NetProps[2,] = c("Coastal","Selfish rating", netsum(model_dat_bs$Selfish))                  
@@ -26,6 +26,18 @@
   NetProps[8,] = c("Lowland","RICH Giving", netsum(model_dat_sc$Give))  
   NetProps[9,] = c("Lowland","RICH Exploitation", netsum(model_dat_sc$Exploit))  
   NetProps[10,] = c("Lowland","RICH Punishment", netsum(model_dat_sc$Reduce))  
+
+  NetProps[11,] = c("Highland","Generous rating", netsum(model_dat_tb$Generous))   
+  NetProps[12,] = c("Highland","Selfish rating", netsum(model_dat_tb$Selfish))                  
+  NetProps[13,] = c("Highland","RICH Giving", netsum(model_dat_tb$Give))  
+  NetProps[14,] = c("Highland","RICH Exploitation", netsum(model_dat_tb$Exploit))  
+  NetProps[15,] = c("Highland","RICH Punishment", netsum(model_dat_tb$Reduce))  
+
+  NetProps[16,] = c("Altiplano","Generous rating", netsum(model_dat_su$Generous))   
+  NetProps[17,] = c("Altiplano","Selfish rating", netsum(model_dat_su$Selfish))                  
+  NetProps[18,] = c("Altiplano","RICH Giving", netsum(model_dat_su$Give))  
+  NetProps[19,] = c("Altiplano","RICH Exploitation", netsum(model_dat_su$Exploit))  
+  NetProps[20,] = c("Altiplano","RICH Punishment", netsum(model_dat_su$Reduce))  
                           
   NetProps[,5:8] = round(as.numeric(NetProps[,5:8]), 3) 
 

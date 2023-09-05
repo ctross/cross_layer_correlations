@@ -47,27 +47,27 @@ red_mountain = c("#800000FF", "#c26a1c", "#CC8214FF", "#616530FF", "#0F425CFF",
 calming_como = c("#34261D", "#A96922", "#7D370D", "#1C7262","#114B47")
 
 png("Selfish_BS.png", 1200, 1200)
-plot(net4, layout=layout_with_lgl, edge.arrow.size =0.1, edge.curved = 0.3, vertex.frame.color=NA, vertex.color=adjustcolor(calming_como[3], alpha.f = 0.9),
+plot(net4, layout=layout_with_fr, edge.arrow.size =0.1, edge.curved = 0.3, vertex.frame.color=NA, vertex.color=adjustcolor(calming_como[3], alpha.f = 0.9),
                   vertex.label=NA, vertex.size = 7, edge.color = adjustcolor( "black", alpha.f = 0.7))
 dev.off()
 
 png("Exploit_BS.png", 1200, 1200)
-plot(net3, layout=layout_with_lgl, edge.arrow.size =0.1, edge.curved = 0.3, vertex.frame.color=NA, vertex.color=adjustcolor(calming_como[2], alpha.f = 0.9),
+plot(net3, layout=layout_with_fr, edge.arrow.size =0.1, edge.curved = 0.3, vertex.frame.color=NA, vertex.color=adjustcolor(calming_como[2], alpha.f = 0.9),
                   vertex.label=NA, vertex.size = 7, edge.color = adjustcolor( "black", alpha.f = 0.6))
 dev.off()
 
 png("Punish_BS.png", 1200, 1200)
-plot(net1, layout=layout_with_lgl, edge.arrow.size =0.1, edge.curved = 0.3, vertex.frame.color=NA, vertex.color=adjustcolor(calming_como[1], alpha.f = 0.9),
+plot(net1, layout=layout_with_fr, edge.arrow.size =0.1, edge.curved = 0.3, vertex.frame.color=NA, vertex.color=adjustcolor(calming_como[1], alpha.f = 0.9),
                   vertex.label=NA, vertex.size = 7, edge.color = adjustcolor( "black", alpha.f = 0.7))
 dev.off()
  
 
 png("Generous_BS.png", 1200, 1200)
-plot(net5, layout=layout_with_lgl, edge.arrow.size =0.1, edge.curved = 0.3, vertex.frame.color=NA, vertex.color=adjustcolor(calming_como[5], alpha.f = 0.9),
+plot(net5, layout=layout_with_fr, edge.arrow.size =0.1, edge.curved = 0.3, vertex.frame.color=NA, vertex.color=adjustcolor(calming_como[5], alpha.f = 0.9),
                   vertex.label=NA, vertex.size = 7, edge.color = adjustcolor( "black", alpha.f = 0.7))
 dev.off()
 
 png("Give_BS.png", 1200, 1200)
-plot(net2, layout=layout_with_lgl, edge.arrow.size =0.1, edge.curved = 0.3, vertex.frame.color=NA, vertex.color=adjustcolor(calming_como[4], alpha.f = 0.9),
+plot(net2, layout=layout_with_fr, edge.arrow.size =0.1, edge.curved = 0.3, vertex.frame.color=NA, vertex.color=adjustcolor(calming_como[4], alpha.f = 0.9),
                   vertex.label=NA, vertex.size = 7, edge.color = adjustcolor( "black", alpha.f = 0.7))
 dev.off()

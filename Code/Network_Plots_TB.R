@@ -2,11 +2,11 @@
 #######################
 color <- shape <- c()
 ########################
-A_Give = model_dat_sc$Give
-A_Exploit = model_dat_sc$Exploit
-A_Reduce = model_dat_sc$Reduce
-A_Selfish = model_dat_sc$Selfish
-A_Generous = model_dat_sc$Generous
+A_Give = model_dat_tb$Give
+A_Exploit = model_dat_tb$Exploit
+A_Reduce = model_dat_tb$Reduce
+A_Selfish = model_dat_tb$Selfish
+A_Generous = model_dat_tb$Generous
 
 set.seed(1)
 X = ifelse(A_Reduce>0,1,0)
@@ -46,28 +46,28 @@ red_mountain = c("#800000FF", "#c26a1c", "#CC8214FF", "#616530FF", "#0F425CFF",
 
 calming_como = c("#34261D", "#A96922", "#7D370D", "#1C7262","#114B47")
 
-png("Selfish_SC.png", 1200, 1200)
+png("Selfish_TB.png", 1200, 1200)
 plot(net4, layout=layout_with_fr, edge.arrow.size =0.1, edge.curved = 0.3, vertex.frame.color=NA, vertex.color=adjustcolor(calming_como[3], alpha.f = 0.9),
                   vertex.label=NA, vertex.size = 7, edge.color = adjustcolor( "black", alpha.f = 0.7))
 dev.off()
 
-png("Exploit_SC.png", 1200, 1200)
+png("Exploit_TB.png", 1200, 1200)
 plot(net3, layout=layout_with_fr, edge.arrow.size =0.1, edge.curved = 0.3, vertex.frame.color=NA, vertex.color=adjustcolor(calming_como[2], alpha.f = 0.9),
                   vertex.label=NA, vertex.size = 7, edge.color = adjustcolor( "black", alpha.f = 0.6))
 dev.off()
 
-png("Punish_SC.png", 1200, 1200)
+png("Punish_TB.png", 1200, 1200)
 plot(net1, layout=layout_with_fr, edge.arrow.size =0.1, edge.curved = 0.3, vertex.frame.color=NA, vertex.color=adjustcolor(calming_como[1], alpha.f = 0.9),
                   vertex.label=NA, vertex.size = 7, edge.color = adjustcolor( "black", alpha.f = 0.7))
 dev.off()
  
 
-png("Generous_SC.png", 1200, 1200)
+png("Generous_TB.png", 1200, 1200)
 plot(net5, layout=layout_with_fr, edge.arrow.size =0.1, edge.curved = 0.3, vertex.frame.color=NA, vertex.color=adjustcolor(calming_como[5], alpha.f = 0.9),
                   vertex.label=NA, vertex.size = 7, edge.color = adjustcolor( "black", alpha.f = 0.7))
 dev.off()
 
-png("Give_SC.png", 1200, 1200)
+png("Give_TB.png", 1200, 1200)
 plot(net2, layout=layout_with_fr, edge.arrow.size =0.1, edge.curved = 0.3, vertex.frame.color=NA, vertex.color=adjustcolor(calming_como[4], alpha.f = 0.9),
                   vertex.label=NA, vertex.size = 7, edge.color = adjustcolor( "black", alpha.f = 0.7))
 dev.off()
