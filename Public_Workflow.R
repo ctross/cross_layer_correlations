@@ -20,7 +20,7 @@ library(ggraph)
 library(xtable)
 
 ################################################ Set WD and load data
- path = "C:\\Users\..."
+ path = "C:\\Users\\..."
  setwd(path)
  load("ColombianDataPublicationVersion.RData")
 
@@ -29,14 +29,40 @@ library(xtable)
 
  source("Code/Network_Plots_BS.R")
  source("Code/Network_Plots_SC.R")
+ source("Code/Network_Plots_SU.R")
+ source("Code/Network_Plots_TB.R")
 
  source("Code/Hive_Plots_SC.R")
  source("Code/Hive_Plots_BS.R")
+ source("Code/Hive_Plots_SU.R")
+ source("Code/Hive_Plots_TB.R")
+
+ ######################### This code runs the stan models for Highland Site
+ iter = 2500
+ warmup = 1000
+ chains = 2
+ refresh = 1
+ seed = 8765309
+
+ sm = stan_model(file="./Code/SRM_5_prior_bandage_no_comments.stan")
+
+ res_tb = sampling(object = sm, data = model_dat_tb, chains = chains, refresh=refresh, iter = iter, warmup = warmup, seed = seed)
+
+ ######################### This code runs the stan models for Altiplano Site
+ iter = 2500
+ warmup = 1000
+ chains = 2
+ refresh = 1
+ seed = 8765309
+
+ sm = stan_model(file="./Code/SRM_5_prior_bandage_no_comments.stan")
+
+ res_su = sampling(object = sm, data = model_dat_su, chains = chains, refresh=refresh, iter = iter, warmup = warmup, seed = seed)
 
 ######################### This code runs the stan models for Coastal Site
  iter = 2500
  warmup = 1000
- chains = 1
+ chains = 2
  refresh = 1
  seed = 8765309
 
@@ -47,7 +73,7 @@ library(xtable)
  ######################### This code runs the stan models for Inland Site
  iter = 2500
  warmup = 1000
- chains = 1
+ chains = 2
  refresh = 1
  seed = 8765309
 
@@ -58,10 +84,16 @@ library(xtable)
  ######################### Now plots
  source("Code/DyadicPlots_BS.R")
  source("Code/DyadicPlots_SC.R")
+ source("Code/DyadicPlots_TB.R")
+ source("Code/DyadicPlots_SU.R")
+
  source("Code/Merged_DR_Plots.R")
 
  source("Code/GeneralizedPlots_BS.R")
  source("Code/GeneralizedPlots_SC.R")
+ source("Code/GeneralizedPlots_TB.R")
+ source("Code/GeneralizedPlots_SU.R")
+
  source("Code/Merged_GR_Plots.R")
 
  ####################### Finally, paper estimates
